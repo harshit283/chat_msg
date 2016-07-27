@@ -1,0 +1,95 @@
+
+
+<html>
+<body>
+<form action="form.html">
+    <input type="text" name="val">
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>
+
+
+
+<!--
+
+<html>
+<body>
+<h1 align="center">WELCOME TO CHATBOX</h1>
+<br>
+<p>Please enter your username in the given field</p>
+<input type="text" placeholder="USERNAME">
+<br>
+<p>Do you want to continue on any previous group</p>
+<button type="button" id="yes">YES</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button type="button" id="no">NO</button>
+
+<div id="div1" style="display: none">
+    <p>Fill in the group name from the list</p>
+    <input type="text" id="grpname1" required>
+    <br>
+    <div id="list"></div>
+    <br>
+    <button type="button" id="div1_btn">SUBMIT</button>
+</div>
+
+<div id="div2" style="display:none">
+    <p>Enter the name of new group</p>
+    <input type="text" id="grpname2" required>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" id="div2_btn">SUBMIT</button>
+</div>
+</body>
+<script src="jquery.js"></script>
+<script>
+
+    $(function () {
+
+        $('#yes').click(function () {
+
+            $('#div1').css("display","block");
+
+            var ans='';
+            $.get('/grp',function (data,status) {
+
+                for(var i=0;i<data.length;i++)
+                    ans+=data[i].name + '<br>';
+
+                $('#list').html(ans);
+            });
+
+
+            $('#div1_btn').click(function () {
+
+                var obj ={};
+                var text = $('#grpname1').val();
+                obj.text = text;
+                window.location.href = "/form.html";
+
+            });
+        });
+
+
+
+
+        $('#no').click(function () {
+
+            $('#div2').css("display","block");
+
+            $('#div2_btn').click(function () {
+
+                var obj = {
+                    text:$('#grpname2').val()
+                };
+
+                $.get('/add_to_grp',obj,function (data,status) {
+
+                });
+            })
+        })
+
+    });
+
+</script>
+</html>
+
+!-->
